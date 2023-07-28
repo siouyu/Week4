@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <link rel="stylesheet" type="text/css" href="/static/layout.css" />
+</head>
+<body>
+    <h1 class="title">歡迎光臨，請輸入帳號密碼</h1>
+        <div class="word">登入系統</div>
+        <div class="container">
+            <div class="center">
+                <form action="/signin" method="post">
+                    <div>
+                        <label for="username" class="detail">帳號</label>
+                        <input class="inputDetail" name="username" placeholder="username" type="text"/>
+                    </div>
+                    <div>
+                        <label for="password" class="detail">密碼</labe>
+                        <input class="inputDetail" name="password" placeholder="password" type="password"/>
+                    </div>
+                    <div>
+                        <label for="agree" class="check">　同意條款　<label>
+                        <input type="checkbox" id="agree"/>
+                    </div>
+                        <div class="signInBtn" method="post">
+                        <button class="button" type="submit" id="signIn">登入</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+<script>
+    const check = document.getElementById("agree") // 先抓到會觸發事件的元素
+    const logIn = document.getElementById("signIn")
+    logIn.addEventListener("click",onClick)
+    function onClick(e){ 
+        if(!check.checked){
+            e.preventDefault();
+            window.alert("請先勾選同意條款！")
+        }
+    }
+
+    // window.onload = function(){
+    //     check.onclick = function(){
+    //         window.alert("請先勾選同意條款！")
+    //     }
+    // }
+</script>
+</body>
+</html>
